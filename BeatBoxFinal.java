@@ -298,26 +298,16 @@ public class BeatBoxFinal {
 
  public class MyResetListener implements ActionListener {
    public void actionPerformed(ActionEvent ev) {
-     boolean[] checkboxState = null;
-     
-     try {
-      FileInputStream fileIn = new FileInputStream(new File("Checkbox.ser"));
-      ObjectInputStream is = new ObjectInputStream(fileIn);
-      checkboxState = (boolean[]) is.readObject();
-      is.close();
-
-     } catch (Exception ex) {
-        ex.printStackTrace();
-     }
-     
-     
+	   
      for (int i = 0; i < 256; i++) {
        JCheckBox check = (JCheckBox) checkboxList.get(i);
        if (check.isSelected()) {
          check.setSelected(false);
          sequencer.stop();
          sequence.deleteTrack(track);
+	       
       } else {
+	       
          check.setSelected(false); 
       }
 
